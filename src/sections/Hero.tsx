@@ -265,7 +265,7 @@ const Hero = () => {
                 >
                   <BarChart3 size={16} />
                 </motion.div>
-                Experte en Contrôle de Gestion
+                Contrôleuse de Gestion
               </motion.span>
             </motion.div>
 
@@ -276,8 +276,9 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 2.6 }}
               className="text-gray-400 text-lg mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed"
             >
-              Je combine expertise technique en développement avec une vision stratégique 
-              en management pour créer des solutions digitales innovantes et performantes.
+              Contrôleuse de gestion spécialisée dans l’analyse de la performance financière,
+              et développeuse web & mobile Android. Je m’intéresse autant à la compréhension
+              des données qu’à la création de solutions numériques performantes.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -313,9 +314,9 @@ const Hero = () => {
               className="flex items-center justify-center lg:justify-start gap-4"
             >
               {[
-                { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                { icon: Github, href: '#', label: 'GitHub' },
-                { icon: Mail, href: '#contact', label: 'Email' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/nanwokan-claire-lydie-ouattara-419969268', label: 'LinkedIn' },
+                { icon: Github, href: 'https://github.com/Nanwokan', label: 'GitHub' },
+                { icon: Mail, href: 'mailto:nanwokan.ouattara@gmail.com', label: 'Email' },
               ].map((social, index) => (
                 <motion.a
                   key={social.label}
@@ -393,13 +394,13 @@ const Hero = () => {
                     <p className="text-[#a78bfa] text-sm">Ajoutez votre photo ici</p>
                   </div>
                   
-                  {/* Uncomment and replace src when you have a photo:
+                  {
                   <img 
-                    src="/your-photo.jpg" 
+                    src="../images/profil.jpg" 
                     alt="Nanwokan Claire-Lydie OUATTARA"
                     className="w-full h-full object-cover"
                   />
-                  */}
+                  }
                 </div>
               </motion.div>
 

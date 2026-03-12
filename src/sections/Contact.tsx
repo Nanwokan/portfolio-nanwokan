@@ -6,13 +6,13 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'claire-lydie.ouattara@email.com',
-    href: 'mailto:claire-lydie.ouattara@email.com',
+    value: 'nanwokan.ouattara@gmail.com',
+    href: 'mailto:nanwokan.ouattara@gmail.com',
   },
   {
     icon: MapPin,
     label: 'Localisation',
-    value: 'Abidjan, Côte d\'Ivoire',
+    value: 'Yvelines, Île-de-France, France',
     href: '#',
   },
   {
@@ -24,8 +24,8 @@ const contactInfo = [
 ];
 
 const socialLinks = [
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Github, href: '#', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/nanwokan-claire-lydie-ouattara-419969268', label: 'LinkedIn' },
+  { icon: Github, href: 'https://github.com/Nanwokan', label: 'GitHub' },
   { icon: Twitter, href: '#', label: 'Twitter' },
 ];
 

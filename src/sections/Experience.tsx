@@ -5,35 +5,84 @@ import { Briefcase, GraduationCap, Code2, BarChart3 } from 'lucide-react';
 const experiences = [
   {
     id: 1,
-    type: 'work',
-    title: 'Stage en Contrôle de Gestion',
-    period: '2023 - 2024',
-    description: 'Participation à l\'élaboration des tableaux de bord, analyse des écarts budgétaires, et contribution à l\'optimisation des processus de reporting.',
-    icon: BarChart3,
+    type: 'education',
+    title: 'Année de césure — HETIC',
+    period: '2025 - 2026',
+    description:
+      "Préparation à l’entrée en 3ᵉ année Bachelor Développeur Web, avec une volonté de renforcer mes compétences en développement, automatisation et outils digitaux appliqués aux environnements métiers.",
+    icon: GraduationCap,
   },
   {
     id: 2,
     type: 'project',
-    title: 'Projets de Développement Web & Mobile',
-    period: '2022 - Présent',
-    description: 'Conception et développement d\'applications mobiles Android et de sites web pour mon entourage. Création de solutions sur mesure répondant aux besoins spécifiques de chaque projet.',
+    title: 'MSA — Plateforme e-santé',
+    period: 'Nov. 2025 - Mars. 2026',
+    description:
+      "",
     icon: Code2,
   },
   {
     id: 3,
-    type: 'education',
-    title: 'Master en Audit et Contrôle de Gestion',
-    period: '2022 - 2024',
-    description: 'Formation approfondie en audit financier, contrôle de gestion, analyse stratégique et tableaux de bord.',
-    icon: GraduationCap,
+    type: 'work',
+    title: 'Contrôleuse de Gestion (Stage) — FILTISAC SA',
+    period: 'Juin 2025 - Déc. 2025',
+    description:
+      "Participation au processus budgétaire, analyse des écarts, suivi de la performance industrielle, fiabilisation des outils de contrôle et automatisation des reportings via Excel avancé, VBA et Power Query.",
+    icon: Briefcase,
   },
   {
     id: 4,
-    type: 'education',
-    title: 'Diplôme de Développeur Web & Mobile',
-    period: '2020 - 2022',
-    description: 'Acquisition des compétences en développement front-end, back-end, et développement mobile Android.',
+    type: 'project',
+    title: 'Teefon — Plateforme e-commerce',
+    period: 'Sept. 2024 - Déc. 2024',
+    description:
+      "Développement d’une plateforme e-commerce avec catalogue, panier, commandes et gestion des rôles. Conception d’une interface responsive, développement des API et gestion des données produits et commandes.",
+    icon: Code2,
+  },
+  {
+    id: 5,
+    type: 'work',
+    title: 'Contrôleuse de Gestion (Stage) — CEMOI CI',
+    period: 'Mai 2024 - Août 2024',
+    description:
+      "Participation aux clôtures mensuelles, contrôle de pièces comptables, déclarations de TVA, mission d’audit interne et analyse des écarts matières/prix en appui au pilotage de la performance.",
     icon: Briefcase,
+  },
+  {
+    id: 6,
+    type: 'education',
+    title: 'Master Audit & Contrôle de Gestion — INSEEC MSc',
+    period: 'Oct. 2023 - Déc. 2025',
+    description:
+      "Formation en audit, contrôle de gestion, analyse de performance, pilotage budgétaire et outils d’aide à la décision.",
+    icon: GraduationCap,
+  },
+  {
+    id: 7,
+    type: 'education',
+    title: 'Graduate Développeur Web Mobile Android — STUDI',
+    period: 'Sept. 2023 - Juil. 2025',
+    description:
+      "Formation en développement web et mobile Android : front-end, back-end, bases de données, API REST et conception d’applications.",
+    icon: GraduationCap,
+  },
+  {
+    id: 8,
+    type: 'education',
+    title: 'Licence Économie-Gestion — Université de Bordeaux',
+    period: 'Sept. 2020 - Mai 2023',
+    description:
+      "Parcours Comptabilité Contrôle Finance, avec acquisition des bases en gestion, comptabilité, finance et analyse.",
+    icon: GraduationCap,
+  },
+  {
+    id: 9,
+    type: 'education',
+    title: 'Baccalauréat Scientifique — Physique-Chimie',
+    period: 'Sept. 2017 - Juin 2020',
+    description:
+      "Formation scientifique avec spécialisation en physique-chimie.",
+    icon: GraduationCap,
   },
 ];
 

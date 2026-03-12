@@ -1,6 +1,15 @@
-import { useRef, useState, useEffect } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { Github, Linkedin, Mail, ChevronDown, Code2, BarChart3, Sparkles } from 'lucide-react';
+import { useRef, useState, useEffect } from "react";
+import { motion, useMotionValue, useTransform } from "framer-motion";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  ChevronDown,
+  Code2,
+  BarChart3,
+  Sparkles,
+} from "lucide-react";
+import Profil from "../images/profil.jpg";
 
 // Particle Component with more dynamic movement
 const Particle = ({ delay, index }: { delay: number; index: number }) => {
@@ -8,8 +17,8 @@ const Particle = ({ delay, index }: { delay: number; index: number }) => {
   const randomY = Math.random() * 100;
   const size = Math.random() * 6 + 3;
   const duration = Math.random() * 8 + 12;
-  
-  const colors = ['#6d28d9', '#8b5cf6', '#a78bfa', '#c4b5fd'];
+
+  const colors = ["#6d28d9", "#8b5cf6", "#a78bfa", "#c4b5fd"];
   const color = colors[index % colors.length];
 
   return (
@@ -41,7 +50,7 @@ const Particle = ({ delay, index }: { delay: number; index: number }) => {
 
 // Typing Effect Component
 const TypingText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
-  const [displayText, setDisplayText] = useState('');
+  const [displayText, setDisplayText] = useState("");
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
@@ -70,16 +79,16 @@ const TypingText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
 };
 
 // Floating Icon Component
-const FloatingIcon = ({ 
-  icon: Icon, 
-  delay, 
-  x, 
-  y, 
-  size = 24 
-}: { 
-  icon: React.ElementType; 
-  delay: number; 
-  x: string; 
+const FloatingIcon = ({
+  icon: Icon,
+  delay,
+  x,
+  y,
+  size = 24,
+}: {
+  icon: React.ElementType;
+  delay: number;
+  x: string;
   y: string;
   size?: number;
 }) => (
@@ -106,7 +115,7 @@ const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  
+
   // Parallax transforms
   const parallaxX = useTransform(mouseX, [-500, 500], [30, -30]);
   const parallaxY = useTransform(mouseY, [-500, 500], [30, -30]);
@@ -122,7 +131,7 @@ const Hero = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -138,15 +147,16 @@ const Hero = () => {
     >
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#0f0f1a]" />
-      
+
       {/* Animated Mesh Gradient */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute w-[800px] h-[800px] rounded-full opacity-20"
           style={{
-            background: 'radial-gradient(circle, rgba(109, 40, 217, 0.4) 0%, transparent 60%)',
-            left: '10%',
-            top: '10%',
+            background:
+              "radial-gradient(circle, rgba(109, 40, 217, 0.4) 0%, transparent 60%)",
+            left: "10%",
+            top: "10%",
           }}
           animate={{
             scale: [1, 1.2, 1],
@@ -162,9 +172,10 @@ const Hero = () => {
         <motion.div
           className="absolute w-[600px] h-[600px] rounded-full opacity-15"
           style={{
-            background: 'radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 60%)',
-            right: '5%',
-            bottom: '10%',
+            background:
+              "radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 60%)",
+            right: "5%",
+            bottom: "10%",
           }}
           animate={{
             scale: [1.2, 1, 1.2],
@@ -178,7 +189,7 @@ const Hero = () => {
           }}
         />
       </div>
-      
+
       {/* Floating Particles */}
       <div className="absolute inset-0 overflow-hidden">
         {particles.map((i) => (
@@ -220,13 +231,13 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-5xl font-bold mb-4 leading-tight"
             >
               <span className="gradient-text">
                 <TypingText text="Nanwokan Claire-Lydie" delay={600} />
               </span>
             </motion.h1>
-            
+
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -243,9 +254,9 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 2.2 }}
               className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6"
             >
-              <motion.span 
+              <motion.span
                 className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#6d28d9]/20 text-[#a78bfa] text-sm font-medium border border-[#8b5cf6]/30"
-                whileHover={{ scale: 1.05, borderColor: '#8b5cf6' }}
+                whileHover={{ scale: 1.05, borderColor: "#8b5cf6" }}
               >
                 <motion.div
                   animate={{ rotate: 360 }}
@@ -255,9 +266,9 @@ const Hero = () => {
                 </motion.div>
                 Développeuse Web & Mobile
               </motion.span>
-              <motion.span 
+              <motion.span
                 className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#8b5cf6]/20 text-[#c4b5fd] text-sm font-medium border border-[#a78bfa]/30"
-                whileHover={{ scale: 1.05, borderColor: '#a78bfa' }}
+                whileHover={{ scale: 1.05, borderColor: "#a78bfa" }}
               >
                 <motion.div
                   animate={{ scale: [1, 1.2, 1] }}
@@ -276,9 +287,10 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 2.6 }}
               className="text-gray-400 text-lg mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed"
             >
-              Contrôleuse de gestion spécialisée dans l’analyse de la performance financière,
-              et développeuse web & mobile Android. Je m’intéresse autant à la compréhension
-              des données qu’à la création de solutions numériques performantes.
+              Contrôleuse de gestion spécialisée dans l’analyse de la
+              performance financière, et développeuse web & mobile Android. Je
+              m’intéresse autant à la compréhension des données qu’à la création
+              de solutions numériques performantes.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -289,7 +301,7 @@ const Hero = () => {
               className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10"
             >
               <motion.button
-                onClick={() => scrollToSection('#projects')}
+                onClick={() => scrollToSection("#projects")}
                 className="btn-primary flex items-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -297,7 +309,7 @@ const Hero = () => {
                 <span>Voir mes projets</span>
               </motion.button>
               <motion.button
-                onClick={() => scrollToSection('#contact')}
+                onClick={() => scrollToSection("#contact")}
                 className="btn-secondary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -314,15 +326,27 @@ const Hero = () => {
               className="flex items-center justify-center lg:justify-start gap-4"
             >
               {[
-                { icon: Linkedin, href: 'https://www.linkedin.com/in/nanwokan-claire-lydie-ouattara-419969268', label: 'LinkedIn' },
-                { icon: Github, href: 'https://github.com/Nanwokan', label: 'GitHub' },
-                { icon: Mail, href: 'mailto:nanwokan.ouattara@gmail.com', label: 'Email' },
+                {
+                  icon: Linkedin,
+                  href: "https://www.linkedin.com/in/nanwokan-claire-lydie-ouattara-419969268",
+                  label: "LinkedIn",
+                },
+                {
+                  icon: Github,
+                  href: "https://github.com/Nanwokan",
+                  label: "GitHub",
+                },
+                {
+                  icon: Mail,
+                  href: "mailto:nanwokan.ouattara@gmail.com",
+                  label: "Email",
+                },
               ].map((social, index) => (
                 <motion.a
                   key={social.label}
                   href={social.href}
                   onClick={(e) => {
-                    if (social.href.startsWith('#')) {
+                    if (social.href.startsWith("#")) {
                       e.preventDefault();
                       scrollToSection(social.href);
                     }
@@ -347,7 +371,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6, type: "spring" }}
             className="hidden lg:flex items-center justify-center"
           >
-            <motion.div 
+            <motion.div
               className="relative"
               style={{ x: parallaxX, y: parallaxY }}
             >
@@ -355,8 +379,9 @@ const Hero = () => {
               <motion.div
                 className="absolute inset-0 rounded-full"
                 style={{
-                  background: 'linear-gradient(135deg, #6d28d9 0%, #8b5cf6 50%, #a78bfa 100%)',
-                  padding: '4px',
+                  background:
+                    "linear-gradient(135deg, #6d28d9 0%, #8b5cf6 50%, #a78bfa 100%)",
+                  padding: "4px",
                 }}
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -368,52 +393,32 @@ const Hero = () => {
               <motion.div
                 className="relative w-80 h-80 rounded-full overflow-hidden"
                 style={{
-                  background: 'linear-gradient(135deg, #6d28d9 0%, #8b5cf6 50%, #a78bfa 100%)',
-                  padding: '4px',
+                  background:
+                    "linear-gradient(135deg, #6d28d9 0%, #8b5cf6 50%, #a78bfa 100%)",
+                  padding: "4px",
                 }}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Photo Placeholder - Replace with your image */}
-                <div className="w-full h-full rounded-full bg-[#1a1a2e] flex items-center justify-center overflow-hidden">
-                  {/* Default Avatar - Replace src with your photo */}
-                  <div className="text-center">
-                    <motion.div
-                      className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#6d28d9] to-[#a78bfa] flex items-center justify-center"
-                      animate={{ 
-                        boxShadow: [
-                          '0 0 30px rgba(109, 40, 217, 0.3)',
-                          '0 0 60px rgba(139, 92, 246, 0.5)',
-                          '0 0 30px rgba(109, 40, 217, 0.3)',
-                        ]
-                      }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                    >
-                      <span className="text-5xl font-bold text-white">NC</span>
-                    </motion.div>
-                    <p className="text-[#a78bfa] text-sm">Ajoutez votre photo ici</p>
-                  </div>
-                  
-                  {
-                  <img 
-                    src="../images/profil.jpg" 
+                <div className="w-full h-full rounded-full bg-[#1a1a2e] overflow-hidden">
+                  <img
+                    src={Profil}
                     alt="Nanwokan Claire-Lydie OUATTARA"
                     className="w-full h-full object-cover"
                   />
-                  }
                 </div>
               </motion.div>
 
               {/* Orbiting Elements */}
               <motion.div
                 className="absolute -top-2 -right-2 w-14 h-14 rounded-full bg-gradient-to-br from-[#6d28d9] to-[#8b5cf6] flex items-center justify-center shadow-lg"
-                animate={{ 
+                animate={{
                   rotate: 360,
                   boxShadow: [
-                    '0 0 20px rgba(109, 40, 217, 0.4)',
-                    '0 0 40px rgba(139, 92, 246, 0.6)',
-                    '0 0 20px rgba(109, 40, 217, 0.4)',
-                  ]
+                    "0 0 20px rgba(109, 40, 217, 0.4)",
+                    "0 0 40px rgba(139, 92, 246, 0.6)",
+                    "0 0 20px rgba(109, 40, 217, 0.4)",
+                  ],
                 }}
                 transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                 style={{ originX: -3, originY: 3 }}
@@ -423,13 +428,13 @@ const Hero = () => {
 
               <motion.div
                 className="absolute -bottom-2 -left-2 w-14 h-14 rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#a78bfa] flex items-center justify-center shadow-lg"
-                animate={{ 
+                animate={{
                   rotate: -360,
                   boxShadow: [
-                    '0 0 20px rgba(139, 92, 246, 0.4)',
-                    '0 0 40px rgba(167, 139, 250, 0.6)',
-                    '0 0 20px rgba(139, 92, 246, 0.4)',
-                  ]
+                    "0 0 20px rgba(139, 92, 246, 0.4)",
+                    "0 0 40px rgba(167, 139, 250, 0.6)",
+                    "0 0 20px rgba(139, 92, 246, 0.4)",
+                  ],
                 }}
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                 style={{ originX: 3, originY: -3 }}
@@ -470,16 +475,18 @@ const Hero = () => {
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <motion.button
-          onClick={() => scrollToSection('#about')}
+          onClick={() => scrollToSection("#about")}
           className="flex flex-col items-center text-gray-400 hover:text-[#8b5cf6] transition-colors"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <span className="text-xs mb-2 uppercase tracking-widest">Découvrir</span>
+          <span className="text-xs mb-2 uppercase tracking-widest">
+            Découvrir
+          </span>
           <motion.div
-            animate={{ 
+            animate={{
               y: [0, 5, 0],
-              opacity: [1, 0.5, 1]
+              opacity: [1, 0.5, 1],
             }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >

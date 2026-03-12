@@ -11,9 +11,9 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Github, href: '#', label: 'GitHub' },
-  { icon: Mail, href: '#contact', label: 'Email' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/nanwokan-claire-lydie-ouattara-419969268', label: 'LinkedIn' },
+  { icon: Github, href: 'https://github.com/Nanwokan', label: 'GitHub' },
+  { icon: Mail, href: 'mailto:nanwokan.ouattara@gmail.com', label: 'Email' },
 ];
 
 const Footer = () => {
@@ -62,7 +62,7 @@ const Footer = () => {
             <p className="text-gray-400 mb-4">
               Développeuse Web & Mobile Android
               <br />
-              Experte en Contrôle de Gestion
+              Contrôleuse de Gestion
             </p>
             <p className="text-gray-500 text-sm">
               Créer des solutions digitales innovantes 

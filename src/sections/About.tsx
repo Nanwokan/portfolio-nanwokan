@@ -1,16 +1,17 @@
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Code2, BarChart3, Target, Award } from 'lucide-react';
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Code2, BarChart3, Target, Award } from "lucide-react";
+import picAbout from "../images/about.jpg";
 
 const stats = [
-  { value: '5+', label: 'Projets réalisés', icon: Code2 },
-  { value: '2', label: 'Diplômes', icon: Award },
-  { value: '2', label: "Domaines d'expertise", icon: Target },
+  { value: "5+", label: "Projets réalisés", icon: Code2 },
+  { value: "3", label: "Diplômes", icon: Award },
+  { value: "2", label: "Domaines d'expertise", icon: Target },
 ];
 
 const About = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
     <section
@@ -19,10 +20,11 @@ const About = () => {
       className="relative section-padding bg-[#1a1a2e] overflow-hidden"
     >
       {/* Animated Background */}
-      <motion.div 
+      <motion.div
         className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10"
         style={{
-          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.6) 0%, transparent 70%)',
+          background:
+            "radial-gradient(circle, rgba(139, 92, 246, 0.6) 0%, transparent 70%)",
         }}
         animate={{
           scale: [1, 1.2, 1],
@@ -30,10 +32,11 @@ const About = () => {
         }}
         transition={{ duration: 10, repeat: Infinity }}
       />
-      <motion.div 
+      <motion.div
         className="absolute bottom-0 left-0 w-80 h-80 rounded-full opacity-10"
         style={{
-          background: 'radial-gradient(circle, rgba(109, 40, 217, 0.6) 0%, transparent 70%)',
+          background:
+            "radial-gradient(circle, rgba(109, 40, 217, 0.6) 0%, transparent 70%)",
         }}
         animate={{
           scale: [1.2, 1, 1.2],
@@ -48,7 +51,7 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative"
           >
             <div className="relative">
@@ -59,59 +62,34 @@ const About = () => {
                 transition={{ duration: 0.3 }}
               >
                 {/* Animated Frame */}
-                <motion.div 
+                <motion.div
                   className="absolute -inset-4 rounded-3xl"
                   style={{
-                    background: 'linear-gradient(135deg, #6d28d9 0%, #8b5cf6 50%, #a78bfa 100%)',
+                    background:
+                      "linear-gradient(135deg, #6d28d9 0%, #8b5cf6 50%, #a78bfa 100%)",
                   }}
                   animate={{ rotate: [0, 2, 0, -2, 0] }}
                   transition={{ duration: 8, repeat: Infinity }}
                 />
-                <motion.div 
+                <motion.div
                   className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-[#6d28d9] via-[#8b5cf6] to-[#a78bfa]"
-                  animate={{ 
+                  animate={{
                     boxShadow: [
-                      '0 0 30px rgba(109, 40, 217, 0.3)',
-                      '0 0 60px rgba(139, 92, 246, 0.5)',
-                      '0 0 30px rgba(109, 40, 217, 0.3)',
-                    ]
+                      "0 0 30px rgba(109, 40, 217, 0.3)",
+                      "0 0 60px rgba(139, 92, 246, 0.5)",
+                      "0 0 30px rgba(109, 40, 217, 0.3)",
+                    ],
                   }}
                   transition={{ duration: 4, repeat: Infinity }}
                 />
-                
+
                 {/* Profile Image Placeholder */}
                 <div className="relative w-full h-full rounded-2xl bg-[#16213e] overflow-hidden flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <motion.div
-                      className="w-40 h-40 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#6d28d9] to-[#a78bfa] flex items-center justify-center"
-                      animate={{ 
-                        rotate: 360,
-                        boxShadow: [
-                          '0 0 40px rgba(109, 40, 217, 0.4)',
-                          '0 0 80px rgba(139, 92, 246, 0.6)',
-                          '0 0 40px rgba(109, 40, 217, 0.4)',
-                        ]
-                      }}
-                      transition={{ 
-                        rotate: { duration: 30, repeat: Infinity, ease: "linear" },
-                        boxShadow: { duration: 3, repeat: Infinity }
-                      }}
-                    >
-                      <div className="w-36 h-36 rounded-full bg-[#16213e] flex items-center justify-center">
-                        <span className="text-5xl font-bold gradient-text">NC</span>
-                      </div>
-                    </motion.div>
-                    <p className="text-[#a78bfa] text-lg">Nanwokan Claire-Lydie</p>
-                    <p className="text-[#8b5cf6] text-sm mt-1">OUATTARA</p>
-                  </div>
-                  
-                  {/* Uncomment for actual photo:
-                  <img 
-                    src="/your-photo.jpg" 
-                    alt="Profile"
+                  <img
+                    src={picAbout}
+                    alt="Nanwokan Claire-Lydie OUATTARA"
                     className="w-full h-full object-cover"
                   />
-                  */}
                 </div>
               </motion.div>
 
@@ -124,7 +102,7 @@ const About = () => {
                 whileHover={{ scale: 1.1, rotate: 5 }}
               >
                 <div className="flex items-center gap-3">
-                  <motion.div 
+                  <motion.div
                     className="w-12 h-12 rounded-full bg-gradient-to-br from-[#6d28d9] to-[#8b5cf6] flex items-center justify-center"
                     animate={{ rotate: [0, 10, -10, 0] }}
                     transition={{ duration: 4, repeat: Infinity }}
@@ -132,8 +110,8 @@ const About = () => {
                     <Code2 size={24} className="text-white" />
                   </motion.div>
                   <div>
-                    <p className="text-white font-semibold">Développeuse</p>
-                    <p className="text-[#a78bfa] text-sm">Full Stack</p>
+                    <p className="text-white font-semibold">Développement</p>
+                    <p className="text-[#a78bfa] text-sm">Web & Mobile</p>
                   </div>
                 </div>
               </motion.div>
@@ -147,7 +125,7 @@ const About = () => {
                 whileHover={{ scale: 1.1, rotate: -5 }}
               >
                 <div className="flex items-center gap-3">
-                  <motion.div 
+                  <motion.div
                     className="w-12 h-12 rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#a78bfa] flex items-center justify-center"
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ duration: 3, repeat: Infinity }}
@@ -155,8 +133,10 @@ const About = () => {
                     <BarChart3 size={24} className="text-white" />
                   </motion.div>
                   <div>
-                    <p className="text-white font-semibold">Contrôle de</p>
-                    <p className="text-[#a78bfa] text-sm">Gestion</p>
+                    <p className="text-white font-semibold">
+                      Contrôle de Gestion
+                    </p>
+                    <p className="text-[#a78bfa] text-sm">Data</p>
                   </div>
                 </div>
               </motion.div>
@@ -168,7 +148,7 @@ const About = () => {
                   className="absolute w-2 h-2 rounded-full bg-[#8b5cf6]"
                   style={{
                     top: `${10 + i * 20}%`,
-                    left: i % 2 === 0 ? '-10%' : '110%',
+                    left: i % 2 === 0 ? "-10%" : "110%",
                   }}
                   animate={{
                     y: [0, -15, 0],
@@ -188,7 +168,7 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, x: 80 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
             {/* Section Label */}
             <motion.div
@@ -215,8 +195,8 @@ const About = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4 }}
             >
-              Une double expertise au service de{' '}
-              <span className="gradient-text">l'innovation</span>
+              Un profil hybride entre{" "}
+              <span className="gradient-text">finance et technologie</span>
             </motion.h2>
 
             {/* Paragraphs with stagger */}
@@ -227,9 +207,9 @@ const About = () => {
               transition={{ delay: 0.5 }}
             >
               {[
-                "Diplômée en développement Web et Mobile Android, je maîtrise les technologies modernes pour créer des applications performantes et des sites web responsives qui répondent aux besoins des utilisateurs.",
-                "Mon Master en Audit et Contrôle de Gestion me confère une vision stratégique unique, me permettant d'approcher chaque projet avec une perspective à la fois technique et managériale.",
-                "Passionnée par l'innovation digitale, j'ai réalisé plusieurs projets personnels pour mon entourage, allant du développement d'applications mobiles à la création de sites web sur mesure."
+                "Contrôleuse de gestion orientée performance, je suis spécialisée dans l’analyse budgétaire, le suivi de la rentabilité et la fiabilisation des données financières. Mes expériences m’ont permis de contribuer au pilotage des coûts, à l’analyse des écarts et à l’amélioration des outils de reporting.",
+                "En parallèle, j’ai développé des compétences en développement web et mobile Android à travers ma formation et plusieurs projets. J’aime concevoir des solutions numériques utiles, structurées et adaptées aux besoins des utilisateurs.",
+                "Mon parcours me permet d’évoluer entre deux univers complémentaires : l’analyse financière et la conception de solutions digitales. Je souhaite continuer à apprendre et à mettre à profit cette double compétence.",
               ].map((text, i) => (
                 <motion.p
                   key={i}
@@ -254,10 +234,10 @@ const About = () => {
                 <motion.div
                   key={stat.label}
                   className="glass rounded-xl p-4 text-center group cursor-default"
-                  whileHover={{ 
-                    scale: 1.08, 
+                  whileHover={{
+                    scale: 1.08,
                     y: -8,
-                    boxShadow: '0 20px 40px rgba(139, 92, 246, 0.2)'
+                    boxShadow: "0 20px 40px rgba(139, 92, 246, 0.2)",
                   }}
                   transition={{ duration: 0.3 }}
                   initial={{ opacity: 0, y: 30 }}
@@ -267,7 +247,11 @@ const About = () => {
                     className="text-3xl font-bold gradient-text mb-1"
                     initial={{ scale: 0 }}
                     animate={isInView ? { scale: 1 } : {}}
-                    transition={{ delay: 1 + index * 0.1, type: "spring", stiffness: 200 }}
+                    transition={{
+                      delay: 1 + index * 0.1,
+                      type: "spring",
+                      stiffness: 200,
+                    }}
                   >
                     {stat.value}
                   </motion.div>

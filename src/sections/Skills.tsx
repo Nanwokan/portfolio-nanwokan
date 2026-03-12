@@ -4,7 +4,6 @@ import {
   Code2,
   Smartphone,
   Database,
-  Palette,
   BarChart3,
   FileSearch,
   LineChart,

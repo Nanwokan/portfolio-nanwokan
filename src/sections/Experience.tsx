@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Briefcase, GraduationCap, Code2, BarChart3 } from 'lucide-react';
+import { Briefcase, GraduationCap, Code2 } from 'lucide-react';
 
 const experiences = [
   {

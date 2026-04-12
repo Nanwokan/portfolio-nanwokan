@@ -43,6 +43,17 @@ const projects = [
     github: '#',
     demo: '#',
   },
+  {
+    id: 5,
+    title: 'Site Web Maxwell FAE',
+    description: 'Site web pour l\'Association Sportive Maxwell FAE, avec presentation des categories, actualites, galerie et contact.',
+    technologies: ['Vite', 'Node.js', 'MongoDB'],
+    previewImage: 'https://image.thum.io/get/width/1000/crop/600/noanimate/https://maxwell-nu.vercel.app/',
+    type: 'web',
+    icon: Globe,
+    github: '#',
+    demo: 'https://maxwell-nu.vercel.app/',
+  },
 ];
 
 const filterCategories = [
@@ -55,6 +66,11 @@ const filterCategories = [
 const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: number }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(cardRef, { once: true, margin: '-50px' });
+  const autoPreviewImage =
+    project.demo && project.demo !== '#'
+      ? `https://image.thum.io/get/width/1000/crop/600/noanimate/${project.demo}`
+      : undefined;
+  const previewImage = project.previewImage ?? autoPreviewImage;
 
   return (
     <motion.div
@@ -70,31 +86,49 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
         whileHover={{ y: -15, scale: 1.02 }}
         transition={{ duration: 0.4 }}
       >
-        {/* Card Header with Icon */}
+        {/* Card Header with Preview */}
         <div 
           className="h-48 relative overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, rgba(109, 40, 217, 0.2) 0%, rgba(139, 92, 246, 0.1) 100%)' }}
+          style={
+            previewImage
+              ? { backgroundColor: '#120f23' }
+              : { background: 'linear-gradient(135deg, rgba(109, 40, 217, 0.2) 0%, rgba(139, 92, 246, 0.1) 100%)' }
+          }
         >
-          <motion.div
-            className="absolute inset-0 flex items-center justify-center"
-            whileHover={{ scale: 1.15, rotate: 5 }}
-            transition={{ duration: 0.4 }}
-          >
-            <motion.div 
-              className="w-24 h-24 rounded-2xl flex items-center justify-center"
-              style={{ backgroundColor: 'rgba(109, 40, 217, 0.2)' }}
-              animate={{
-                boxShadow: [
-                  '0 0 30px rgba(109, 40, 217, 0.2)',
-                  '0 0 50px rgba(139, 92, 246, 0.3)',
-                  '0 0 30px rgba(109, 40, 217, 0.2)',
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
+          {previewImage ? (
+            <>
+              <motion.img
+                src={previewImage}
+                alt={`Apercu du projet ${project.title}`}
+                className="absolute inset-0 h-full w-full object-cover"
+                initial={{ scale: 1.05, opacity: 0.85 }}
+                whileHover={{ scale: 1.12 }}
+                transition={{ duration: 0.5 }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#0f0f1a]/20 via-[#0f0f1a]/40 to-[#0f0f1a]/75" />
+            </>
+          ) : (
+            <motion.div
+              className="absolute inset-0 flex items-center justify-center"
+              whileHover={{ scale: 1.15, rotate: 5 }}
+              transition={{ duration: 0.4 }}
             >
-              <project.icon size={48} className="text-[#8b5cf6]" />
+              <motion.div 
+                className="w-24 h-24 rounded-2xl flex items-center justify-center"
+                style={{ backgroundColor: 'rgba(109, 40, 217, 0.2)' }}
+                animate={{
+                  boxShadow: [
+                    '0 0 30px rgba(109, 40, 217, 0.2)',
+                    '0 0 50px rgba(139, 92, 246, 0.3)',
+                    '0 0 30px rgba(109, 40, 217, 0.2)',
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <project.icon size={48} className="text-[#8b5cf6]" />
+              </motion.div>
             </motion.div>
-          </motion.div>
+          )}
           
           {/* Overlay on Hover */}
           <motion.div
@@ -308,3 +342,4 @@ const Projects = () => {
 };
 
 export default Projects;
+

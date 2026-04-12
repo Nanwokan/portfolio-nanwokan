@@ -11,12 +11,19 @@ import {
 } from "lucide-react";
 import Profil from "../images/profil.jpg";
 
+const seededRandom = (seed: number) => {
+  const value = Math.sin(seed * 9999.91) * 43758.5453;
+  return value - Math.floor(value);
+};
+
 // Particle Component with more dynamic movement
 const Particle = ({ delay, index }: { delay: number; index: number }) => {
-  const randomX = Math.random() * 100;
-  const randomY = Math.random() * 100;
-  const size = Math.random() * 6 + 3;
-  const duration = Math.random() * 8 + 12;
+  const randomX = seededRandom(index * 10 + 1) * 100;
+  const randomY = seededRandom(index * 10 + 2) * 100;
+  const size = seededRandom(index * 10 + 3) * 6 + 3;
+  const duration = seededRandom(index * 10 + 4) * 8 + 12;
+  const driftX1 = seededRandom(index * 10 + 5) * 40 - 20;
+  const driftX2 = seededRandom(index * 10 + 6) * 40 - 20;
 
   const colors = ["#6d28d9", "#8b5cf6", "#a78bfa", "#c4b5fd"];
   const color = colors[index % colors.length];
@@ -34,7 +41,7 @@ const Particle = ({ delay, index }: { delay: number; index: number }) => {
       }}
       animate={{
         y: [0, -50, 0, 30, 0],
-        x: [0, Math.random() * 40 - 20, Math.random() * -40 + 20, 0],
+        x: [0, driftX1, driftX2, 0],
         opacity: [0.2, 0.8, 0.4, 0.9, 0.2],
         scale: [1, 1.3, 0.8, 1.2, 1],
       }}
@@ -391,7 +398,7 @@ const Hero = () => {
 
               {/* Main Photo Container */}
               <motion.div
-                className="relative w-80 h-80 rounded-full overflow-hidden"
+                className="relative max-w-[30rem] h-[30rem] rounded-full overflow-hidden"
                 style={{
                   background:
                     "linear-gradient(135deg, #6d28d9 0%, #8b5cf6 50%, #a78bfa 100%)",

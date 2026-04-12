@@ -1,8 +1,20 @@
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Smartphone, Globe, AppWindow } from 'lucide-react';
+import { ExternalLink, Github, Smartphone, Globe, AppWindow, type LucideIcon } from 'lucide-react';
 
-const projects = [
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  technologies: string[];
+  type: 'mobile' | 'web' | 'webapp';
+  icon: LucideIcon;
+  github: string;
+  demo: string;
+  previewImage?: string;
+};
+
+const projects: Project[] = [
   {
     id: 1,
     title: 'Application Mobile de Gestion',
@@ -48,7 +60,6 @@ const projects = [
     title: 'Site Web Maxwell FAE',
     description: 'Site web pour l\'Association Sportive Maxwell FAE, avec presentation des categories, actualites, galerie et contact.',
     technologies: ['Vite', 'Node.js', 'MongoDB'],
-    previewImage: 'https://image.thum.io/get/width/1000/crop/600/noanimate/https://maxwell-nu.vercel.app/',
     type: 'web',
     icon: Globe,
     github: '#',
@@ -63,14 +74,20 @@ const filterCategories = [
   { id: 'webapp', label: 'Web App' },
 ];
 
-const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: number }) => {
+const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(cardRef, { once: true, margin: '-50px' });
-  const autoPreviewImage =
-    project.demo && project.demo !== '#'
-      ? `https://image.thum.io/get/width/1000/crop/600/noanimate/${project.demo}`
-      : undefined;
-  const previewImage = project.previewImage ?? autoPreviewImage;
+  const previewSources = [
+    ...(project.previewImage ? [project.previewImage] : []),
+    ...(project.demo && project.demo !== '#'
+      ? [
+          `https://s.wordpress.com/mshots/v1/${encodeURIComponent(project.demo)}?w=1200`,
+          `https://image.thum.io/get/width/1000/crop/600/noanimate/${project.demo}`,
+        ]
+      : []),
+  ].filter((source, sourceIndex, allSources) => allSources.indexOf(source) === sourceIndex);
+  const [failedPreviewSources, setFailedPreviewSources] = useState<string[]>([]);
+  const previewImage = previewSources.find(source => !failedPreviewSources.includes(source));
 
   return (
     <motion.div
@@ -104,6 +121,12 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
                 initial={{ scale: 1.05, opacity: 0.85 }}
                 whileHover={{ scale: 1.12 }}
                 transition={{ duration: 0.5 }}
+                loading="lazy"
+                onError={() => {
+                  if (previewImage) {
+                    setFailedPreviewSources(prev => [...prev, previewImage]);
+                  }
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-b from-[#0f0f1a]/20 via-[#0f0f1a]/40 to-[#0f0f1a]/75" />
             </>
